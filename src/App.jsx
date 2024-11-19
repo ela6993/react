@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 function App() {
 
   const [products, setProducts] = useState([])
+  const [loading, setLoading] = useState(true)
 
   const fetchData = async () => {
     try {
@@ -15,6 +16,8 @@ function App() {
       setProducts(products)
     } catch (error){
       console.error(error)
+    }finally{
+      setLoading(false)
     }
   }
 
@@ -24,6 +27,7 @@ function App() {
 
   return (
       <div className="App">
+      {loading && <div>Loading</div>}
       {products.map((product) => (
         <Product key = {product.id} product = {product}/>
       ))}

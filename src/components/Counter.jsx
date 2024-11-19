@@ -2,22 +2,16 @@ import { useState } from "react"
 import "./styles/Counter.css"
 
 const Counter = function(props) {
-    const [number, setNumber] = useState(false)
+    const [number, setNumber] = useState('Add')
 
     function increment() {
-        setNumber(number + 1)
-    }
-
-    function decrement() {
-        if(number > 0){
-            setNumber(number-1)
-        }
+        setNumber(nNumber => nNumber === 'Add' ? 'Added' : 'Add')
     }
 
 
     return(
         <div className="counter">
-            <button onClick={increment}>Add</button>
+            <button onClick={increment}>{number}</button>
         </div>
     )
 }
